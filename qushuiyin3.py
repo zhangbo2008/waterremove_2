@@ -1,7 +1,7 @@
 # 继续研究去水印的方法.
 import cv2
-a=cv2.imread('999.jpg')
-a=cv2.imread('tmp222222.png')
+# a=cv2.imread('999.jpg')
+a=cv2.imread('666.jpg')
 hsv = cv2.cvtColor(a, cv2.COLOR_BGR2HSV)
 
 # 分离通道
@@ -29,8 +29,15 @@ tmp[np.bitwise_and(tmp<80 , 70<tmp)]=93
 s[1229:1446,700:1000]=tmp
 
 
+#===处理看字
+tmp=s[1229:1446,1200:1900]
+tmp[np.bitwise_and(tmp<80 , 70<tmp)]=93
+s[1229:1446,1200:1900]=tmp
 
-
+#处理房字
+tmp=s[1229:1446,1200:1900]
+tmp[np.bitwise_and(tmp<115 , 80<tmp)]=115
+s[1229:1446,1200:1900]=tmp
 
 
 
